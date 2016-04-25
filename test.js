@@ -2,13 +2,13 @@
   var fs = require("fs");
   var cheerio = require("cheerio");
   request({
-    url: "http://blog.infographics.tw",
+    url: "http://www.nytimes.com/?action=click&contentCollection=Opinion&region=TopBar&module=HomePage-Title&pgtype=article",
     method: "GET"
   }, function(e,r,b) {
     if(e || !b) { return; }
     var $ = cheerio.load(b);
     var result = [];
-    var titles = $("li.item h2");
+    var titles = $(".story-heading");
     for(var i=0;i<titles.length;i++) {
       console.log($(titles[i]).text());
       result.push($(titles[i]).text());
