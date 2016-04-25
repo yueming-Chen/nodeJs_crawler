@@ -13,5 +13,6 @@
       console.log($(titles[i]).text());
       result.push($(titles[i]).text());
     }
+    //the file will save at site where you in your location path
     fs.writeFileSync("C:/Users/rach/Desktop/test/result.json", JSON.stringify(result));
   });
