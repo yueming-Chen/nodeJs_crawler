@@ -69,7 +69,16 @@ var app=angular.module('starter', ['ionic', 'starter.controllers', 'starter.serv
       }
     }
   })
-
+  
+  .state('tab.dash-pushFood', {
+    url: '/dash/pushFood',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/dash-pushFood.html',
+        controller: 'pushFoodCtrl'
+      }
+    }
+  })
   .state('tab.driverlist', {
     url: '/driverlist',
     views: {

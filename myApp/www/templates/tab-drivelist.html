@@ -1,10 +1,20 @@
-<ion-view view-title="共乘列表">
+<ion-view view-title="食譜列表">
   <ion-content>
+  <div class="bar bar-header item-input-inset">
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="search" placeholder="Search">
+  </label>
+  <button class="button button-clear">
+    Cancel
+  </button>
+</div>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="list in lists" type="item-text-wrap">
-          <h2>前往地點：{{list.Dest}}</h2>
-          <p>出發地點：{{list.from}}</p>
-          <p>日期：{{list.time}}</p>
+      <img src="img/ben.png">
+          <h2>{{list.mealName}}</h2>
+          <p>作者：{{list.author}}</p>
+          <p>發布日期：{{list.time}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>

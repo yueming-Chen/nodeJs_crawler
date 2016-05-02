@@ -11,46 +11,43 @@
   //   'User-Agent':'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36',
   // };
   var cheerio = require("cheerio");
-  request({
-    url: "https://nportal.ntut.edu.tw/login.do",
-    method: "POST"
-  }, function(e,r,b) {
-    if(e || !b) { return; }
-    console.log(b);
-    var $ = cheerio.load(b);
-    var result = [];
-    // var titles = $(".story-heading");
-    // for(var i=0;i<titles.length;i++) {
-    //   console.log($(titles[i]).text());
-    //   result.push($(titles[i]).text());
-    // }
-    //the file will save at site where you in your location path
-    fs.writeFileSync("C:/Users/rach/Desktop/test/result.json", JSON.stringify(result));
-  });
+  for(var i=0;i<10000;i++){
+	  request({
+	    url: "http://218.161.38.126:3000/api/users",
+	    method: "GET"
+	  }, function(e,r,b) {
+	    if(e || !b) { return; }
+	    console.log(b);
+	    var $ = cheerio.load(b);
+	    var result = [];
+	    fs.writeFileSync("C:/Users/rach/Desktop/test/result.json", JSON.stringify(result));
+	  });
+  }
+
 
   // aaa9HgDZuELsd4YbZLNqv 
   // aaavjgQpdXBFh4H5LMNqv
 
-var express = require('express');
-// 首先引入 cookie-parser 这个模块
-var cookieParser = require('cookie-parser');
+// var express = require('express');
+// // 首先引入 cookie-parser 这个模块
+// var cookieParser = require('cookie-parser');
 
-var app = express();
-app.listen(3000);
+// var app = express();
+// app.listen(3000);
 
-// 使用 cookieParser 中间件，cookieParser(secret, options)
-// 其中 secret 用来加密 cookie 字符串（下面会提到 signedCookies）
-// options 传入上面介绍的 cookie 可选参数
-app.use(cookieParser());
+// // 使用 cookieParser 中间件，cookieParser(secret, options)
+// // 其中 secret 用来加密 cookie 字符串（下面会提到 signedCookies）
+// // options 传入上面介绍的 cookie 可选参数
+// app.use(cookieParser());
 
-app.get('/', function (req, res) {
-  // 如果请求中的 cookie 存在 isVisit, 则输出 cookie
-  // 否则，设置 cookie 字段 isVisit, 并设置过期时间为1分钟
-  if (req.cookies.isVisit) {
-    console.log(req.cookies);
-    res.send("再次欢迎访问");
-  } else {
-    res.cookie('isVisit', 1, {maxAge: 60 * 1000});
-    res.send("欢迎第一次访问");
-  }
-});
+// app.get('/', function (req, res) {
+//   // 如果请求中的 cookie 存在 isVisit, 则输出 cookie
+//   // 否则，设置 cookie 字段 isVisit, 并设置过期时间为1分钟
+//   if (req.cookies.isVisit) {
+//     console.log(req.cookies);
+//     res.send("再次欢迎访问");
+//   } else {
+//     res.cookie('isVisit', 1, {maxAge: 60 * 1000});
+//     res.send("欢迎第一次访问");
+//   }
+// });
